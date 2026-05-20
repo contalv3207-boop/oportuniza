@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oportuniza | App</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="app-container">
+         <!-- Menu Lateral (Sidebar) -->
+    <div id="sidebar" class="sidebar">
+        <button class="close-sidebar" onclick="toggleSidebar()">&times;</button>
+        <div class="sidebar-header">
+            
+        </div>
+            <nav class="sidebar-nav">
+            <a href="#" onclick="showScreen('home-screen'); toggleSidebar()"><i class="fa-solid fa-house"></i> Home</a>
+            <a href="#" onclick="showScreen('messages-screen'); switchMessageContext('general'); toggleSidebar()"><i class="fa-solid fa-comments"></i> Mensagens <span class="badge" id="messages-badge">0</span></a>
+            <a href="#" onclick="showScreen('map-screen'); toggleSidebar()"><i class="fa-solid fa-map-location-dot"></i> Mapa </a>
+            <a href="#" onclick="showScreen('settings-screen'); toggleSidebar()"><i class="fa-solid fa-gear"></i> Configurações</a>
+        </nav>
+    </div>
+        <section id="landing-screen" class="screen active landing-screen">
+            <div class="landing-card">
+                <div class="landing-handle" onclick="toggleLandingSheet()"><span></span></div>
+                <div class="landing-hero">
+                    <img src="images/logo.png" alt="Oportuniza" class="landing-logo-large">
+                    <div class="landing-hero-copy">
+                        <p class="eyebrow">Oportuniza</p>
+                        <h1 class="landing-title">Seu app para vagas, cursos e carreira.</h1>
+                        <p class="landing-subtitle">Descubra oportunidades, faça cursos práticos e avance na carreira com um app simples e poderoso.</p>
+                    </div>
+                </div>
+                <div class="landing-image-frame landing-image-center">
+                    <img src="images/r.jpg" alt="Preview do app" class="landing-screen-image">
+                </div>
+                <div class="landing-actions">
+                    <button class="btn-primary" onclick="showScreen('login-screen')">Comece agora</button>
+                    <button class="btn-secondary" onclick="showScreen('bio-screen')">Saiba mais</button>
+                </div>
+                <section class="landing-section">
+                    <h2>O que o Oportuniza faz por você</h2>
+                    <div class="landing-features">
+                        <div class="feature-pill">
+                            <i class="fa-solid fa-search"></i>
+                            <div>
+                                <strong>Encontra vagas certas</strong>
+                                <span>Seu perfil, seus interesses e as melhores oportunidades.</span>
+                            </div>
+                        </div>
+                        <div class="feature-pill">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                            <div>
+                                <strong>Cursos que ajudam no dia a dia</strong>
+                                <span>Conteúdo rápido e prático para você aprender mais rápido.</span>
+                            </div>
+                        </div>
+                        <div class="feature-pill">
+                            <i class="fa-solid fa-comments"></i>
+                            <div>
+                                <strong>Ajuda sempre disponível</strong>
+                                <span>Dicas e suporte para você evoluir na carreira.</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="landing-section">
+                    <h2>Como funciona</h2>
+                    <div class="feature-pill compact">
+                        <i class="fa-solid fa-mobile-screen-button"></i>
+                        <div>
+                            <strong>1. Cadastre seu perfil</strong>
+                            <span>Preencha seu objetivo e experiência em minutos.</span>
+                        </div>
+                    </div>
+                    <div class="feature-pill compact">
+                        <i class="fa-solid fa-bullseye"></i>
+                        <div>
+                            <strong>2. Receba indicações</strong>
+                            <span>Vagas e cursos personalizados para suas metas.</span>
+                        </div>
+                    </div>
+                    <div class="feature-pill compact">
+                        <i class="fa-solid fa-rocket"></i>
+                        <div>
+                            <strong>3. Cresça na carreira</strong>
+                            <span>Fique à frente no mercado com aprendizado prático.</span>
+                        </div>
+                    </div>
+                </section>
+                <div class="landing-stats">
+                    <div>
+                        <strong>+1.200</strong>
+                        <span>Usuários ativos</span>
+                    </div>
+                    <div>
+                        <strong>98%</strong>
+                        <span>Satisfação garantida</span>
+                    </div>
+                </div>
+            </div>
+            <!-- per-screen scrollbar removed; using global scrollbar -->
+        </section>
+
+        <section id="bio-screen" class="screen bio-screen">
+            <header>
+                <button class="menu-toggle" onclick="showScreen('landing-screen')">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </button>
+                <div class="bio-header">
+                    <img src="images/logo.png" alt="Oportuniza" class="bio-logo">
+                    <div>
+                        <h1 class="brand-name">Oportuniza</h1>
+                        <p class="tagline">A história do app que conecta você às melhores oportunidades.</p>
+                    </div>
+                </div>
+            </header>
+            <div class="bio-content">
+                <div class="bio-card">
+                    <h2>Quem somos</h2>
+                    <p>O Oportuniza nasceu para ajudar jovens e profissionais a encontrar vagas, cursos e orientação de carreira em um só lugar.</p>
+                    <h2>Missão</h2>
+                    <p>Queremos tornar a busca por emprego mais simples, justa e personalizada, conectando talentos às oportunidades certas.</p>
+                    <h2>Como funciona</h2>
+                    <ul>
+                        <li>Perfil inteligente: você cria um perfil e recebe vagas direcionadas.</li>
+                        <li>Cursos práticos: aprenda habilidades de alto impacto para o mercado.</li>
+                        <li>Suporte de carreira: dicas e mensagens para você evoluir com confiança.</li>
+                    </ul>
+                    <button class="btn-primary" onclick="showScreen('login-screen')">Abrir app</button>
+                </div>
+            </div>
+            <!-- per-screen scrollbar removed; using global scrollbar -->
+        </section>
+
+        <!-- Barra de scroll global (substitui barras por tela) -->
+        <div class="scroll-sidebar" id="global-scrollbar">
+            <button class="scroll-btn scroll-up" onclick="scrollActiveScreen(-1)" aria-label="Rolar para cima"><i class="fa-solid fa-chevron-up"></i></button>
+            <div class="scroll-track">
+                <div class="scroll-thumb" id="global-scroll-thumb"></div>
+            </div>
+            <button class="scroll-btn scroll-down" onclick="scrollActiveScreen(1)" aria-label="Rolar para baixo"><i class="fa-solid fa-chevron-down"></i></button>
+        </div>
+
+        <section id="home-screen" class="screen">
+    <header>
+    <div class="header-top">
+        <!-- Botão das 3 barrinhas -->
+        <button class="menu-toggle" onclick="toggleSidebar()">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+    </div>
+
+    <!-- ===================== BOTTOM NAV (ABA) ===================== -->
+    <div class="bottom-nav hidden" role="navigation">
+        <a href="#" onclick="showScreen('home-screen')" class="nav-item"><i class="fa-solid fa-house"></i><span>Home</span></a>
+        <a href="#" onclick="showScreen('messages-screen'); switchMessageContext('general');" class="nav-item"><i class="fa-solid fa-comments"></i><span>Mensagens</span><span class="badge" id="messages-badge-bottom">0</span></a>
+        <a href="#" onclick="showScreen('courses-screen')" class="nav-item"><i class="fa-solid fa-graduation-cap"></i><span>Cursos</span></a>
+        <a href="#" onclick="showScreen('profile-screen')" class="nav-item"><i class="fa-solid fa-user"></i><span>Perfil</span></a>
+        <a href="#" onclick="showScreen('jobs-screen')" class="nav-item"><i class="fa-solid fa-briefcase"></i><span>Vagas</span></a>
+        <a href="#" onclick="showScreen('settings-screen')" class="nav-item"><i class="fa-solid fa-gear"></i><span>Config</span></a>
+    </div>
+
+    <div class="user-info">
+        <img src="images/user_profile.png" alt="Perfil" class="profile-img" id="home-profile-img">
+        <div>
+            <p class="tagline" style="margin: 0;">Bem-vindo,</p>
+            <h1 class="brand-name" id="user-display-name" style="font-size: 20px;">Usuário</h1>
+        </div>
+    </div>
+</header>
+
+    <div class="home-content">
+    <div class="stats-grid">
+        <!-- Botão de Vagas -->
+        <div class="stat-card" onclick="showScreen('jobs-screen')" style="cursor: pointer;">
+            <i class="fa-solid fa-briefcase"></i>
+            <span>Vagas</span>
+        </div>
+
+        <!-- Botão de Cursos -->
+        <div class="stat-card" onclick="showScreen('courses-screen')" style="cursor: pointer;">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>Cursos</span>
+        </div>
+    </div>
+
+    <div class="profile-summary-card">
+        <div class="summary-head">
+            <span>Progresso do seu perfil</span>
+            <strong id="home-profile-progress-label">0%</strong>
+        </div>
+        <p id="home-profile-summary-text">Complete seu perfil para receber melhores recomendações de vagas e cursos.</p>
+        <div class="summary-actions">
+            <button class="btn-secondary" onclick="showScreen('settings-screen')">Ajustar perfil</button>
+            <button class="btn-primary" onclick="showScreen('profile-screen')"><i class="fa-solid fa-user"></i> Editar perfil</button>
+        </div>
+    </div>
+
+        <h3 style="margin: 20px 0 10px; color: var(--text-main);">Destaques para você</h3>
+        <div class="featured-card">
+            <img src="images/CIEE.png" alt="CIEE" style="height: 40px;">
+            <p>Novas oportunidades de estágio disponíveis no CIEE.</p>
+        </div>
+    </div>
+
+</section>
+<!-- Tela de Cursos -->
+<section id="courses-screen" class="screen">
+    <header>
+        <button class="menu-toggle" onclick="showScreen('home-screen')">
+            <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        <h1 class="brand-name" style="margin-top: 10px;">Cursos</h1>
+    </header>
+
+    <div class="courses-container">
+
+        <!-- Barra de Pesquisa -->
+        <div class="search-bar" style="margin-bottom: 20px;">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" placeholder="Buscar cursos..." id="course-search">
+        </div>
+
+        <!-- Categorias -->
+        <h2 style="margin: 15px 0 10px;">Categorias</h2>
+        <div class="category-grid">
+            <div class="category-card active" data-category="all" onclick="filterByCategory('all')">
+                <i class="fa-solid fa-th"></i>
+                <span>Todos</span>
+            </div>
+            <div class="category-card" data-category="ti" onclick="filterByCategory('ti')">
+                <i class="fa-solid fa-laptop-code"></i>
+                <span>Tecnologia</span>
+            </div>
+            <div class="category-card" data-category="idiomas" onclick="filterByCategory('idiomas')">
+                <i class="fa-solid fa-language"></i>
+                <span>Idiomas</span>
+            </div>
+            <div class="category-card" data-category="marketing" onclick="filterByCategory('marketing')">
+                <i class="fa-solid fa-chart-line"></i>
+                <span>Marketing</span>
+            </div>
+            <div class="category-card" data-category="design" onclick="filterByCategory('design')">
+                <i class="fa-solid fa-palette"></i>
+                <span>Design</span>
+            </div>
+            <div class="category-card" data-category="pessoal" onclick="filterByCategory('pessoal')">
+                <i class="fa-solid fa-seedling"></i>
+                <span>Desenv. Pessoal</span>
+            </div>
+            <div class="category-card" data-category="negocios" onclick="filterByCategory('negocios')">
+                <i class="fa-solid fa-briefcase"></i>
+                <span>Negócios</span>
+            </div>
+        </div>
+
+        <h2 style="margin: 25px 0 12px;" id="section-title">Todos os Cursos</h2>
+        
+        <div class="courses-grid" id="courses-list">
+
+            <!-- === TECNOLOGIA === -->
+            <div class="course-card" data-id="1" data-category="ti" data-title="Python para Iniciantes">
+                <div class="course-image">
+                    <img src="images/PYTHON.webp" alt="Python">
+                    <span class="course-level">Iniciante</span>
+                </div>
+
+
+
+                
+                <div class="course-info">
+                    <h3>Python para Iniciantes</h3>
+                    <p class="course-instructor">Prof. Lucas Mendes</p>
+                    <p class="course-desc">Aprenda do zero a programar com a linguagem mais usada do mundo.</p>
+                    <div class="course-meta">
+                        <span><i class="fa-solid fa-clock"></i> 42h</span>
+                        <span><i class="fa-solid fa-star"></i> 4.9</span>
+                    </div>
+                    <div class="course-card-actions" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:15px;">
+                        <button class="btn-enroll" onclick="showCourseDetail(this.closest('.course-card'))">Ver Detalhes</button>
+                        <button class="btn-secondary" onclick="addToFavorites('course', 1, 'Python para Iniciantes')" style="flex:1; min-width:120px;">Favoritar</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="course-card" data-id="2" data-category="ti" data-title="React do Zero ao Avançado">
+                <div class="course-image">
+                    <img src="images/REACT.webp" alt="React">
+                    <span class="course-level">Intermediário</span>
+                </div>
+                <div class="course-info">
+                    <h3>React do Zero ao Avançado</h3>
+                    <p class="course-instructor">Profa. Juliana Costa</p>
+                    <p class="course-desc">Domine React do básico ao avançado com projetos reais.</p>
+                    <div class="course-meta">
+                        <span><i class="fa-solid fa-clock"></i> 58h</span>
+                        <span><i class="fa-solid fa-star"></i> 4.8</span>
+                    </div>
+                    <div class="course-card-actions" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:15px;">
+                        <button class="btn-enroll" onclick="showCourseDetail(this.closest('.course-card'))">Ver Detalhes</button>
+                        <button class="btn-secondary" onclick="addToFavorites('course', 2, 'React do Zero ao Avançado')" style="flex:1; min-width:120px;">Favoritar</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- === IDIOMAS === -->
+            <div class="course-card" data-id="3" data-category="idiomas" data-title="Inglês Fluente em 6 Meses">
+                <div class="course-image">
+                    <img src="images/ingles.jpg" alt="Inglês">
+                    <span class="course-level">Intermediário</span>
+                </div>
+                <div class="course-info">
+                    <h3>Inglês Fluente em 6 Meses</h3>
+                    <p class="course-instructor">Profa. Amanda Costa</p>
+                    <p class="course-desc">Método prático para falar inglês com confiança.</p>
+                    <div class="course-meta">
+                        <span><i class="fa-solid fa-clock"></i> 68h</span>
+                        <span><i class="fa-solid fa-star"></i> 4.9</span>
+                    </div>
+                    <div class="course-card-actions" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:15px;">
+                        <button class="btn-enroll" onclick="showCourseDetail(this.closest('.course-card'))">Ver Detalhes</button>
+                        <button class="btn-secondary" onclick="addToFavorites('course', 3, 'Inglês Fluente em 6 Meses')" style="flex:1; min-width:120px;">Favoritar</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="course-card" data-id="4" data-category="idiomas" data-title="Espanhol Conversacional">
+                <div class="course-image">
+                    <img src="images/espanhol.jpg" alt="Espanhol">
+                    <span class="course-level">Básico</span>
+                </div>
+                <div class="course-info">
+                    <h3>Espanhol Conversacional</h3>
+                    <p class="course-instructor">Prof. Diego Ramírez</p>
+                    <p class="course-desc">Aprenda espanhol focado em conversação real.</p>
+                    <div class="course-meta">
+                        <span><i class="fa-solid fa-clock"></i> 35h</span>
+                        <span><i class="fa-solid fa-star"></i> 4.7</span>
+                    </div>
+                    <div class="course-card-actions" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:15px;">
+                        <button class="btn-enroll" onclick="showCourseDetail(this.closest('.course-card'))">Ver Detalhes</button>
+                        <button class="btn-secondary" onclick="addToFavorites('course', 4, 'Espanhol Conversacional')" style="flex:1; min-width:120px;">Favoritar</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- === MARKETING === -->
+            <div class="course-card" data-id="5" data-category="marketing" data-title="Marketing Digital 2026">
+                <div class="course-image">
+                    <img src="images/marketing.jpg" alt="Marketing">
+                    <span class="course-level">Avançado</span>
+                </div>
+                <div class="course-info">
+                    <h3>Marketing Digital 2026</h3>
+                    <p class="course-instructor">Gabriel Rocha</p>
+                    <p class="course-desc">Estratégias atualizadas para crescer no digital.</p>
+                    <div class="course-meta">
+                        <span><i class="fa-solid fa-clock"></i> 45h</span>
+                        <span><i class="fa-solid fa-star"></i> 5.0</span>
+                    </div>
+                    <div class="course-card-actions" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:15px;">
+                        <button class="btn-enroll" onclick="showCourseDetail(this.closest('.course-card'))">Ver Detalhes</button>
+                        <button class="btn-secondary" onclick="addToFavorites('course', 5, 'Marketing Digital 2026')" style="flex:1; min-width:120px;">Favoritar</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- === DESIGN === -->
+            <div class="course-card" data-id="6" data-category="design" data-title="UI/UX Design com Figma">
+                <div class="course-image">
+                    <img src="images/ux.jpg" alt="Figma">
+                    <span class="course-level">Intermediário</span>
+                </div>
+                <div class="course-info">
+                    <h3>UI/UX Design com Figma</h3>
+                    <p class="course-instructor">Larissa Mendes</p>
+                    <p class="course-desc">Crie interfaces modernas e profissionais.</p>
+                    <div class="course-meta">
+                        <span><i class="fa-solid fa-clock"></i> 52h</span>
+                        <span><i class="fa-solid fa-star"></i> 4.8</span>
+                    </div>
+                    <div class="course-card-actions" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:15px;">
+                        <button class="btn-enroll" onclick="showCourseDetail(this.closest('.course-card'))">Ver Detalhes</button>
+                        <button class="btn-secondary" onclick="addToFavorites('course', 6, 'UI/UX Design com Figma')" style="flex:1; min-width:120px;">Favoritar</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- === DESENVOLVIMENTO PESSOAL === -->
+            <div class="course-card" data-id="7" data-category="pessoal" data-title="Produtividade Extrema">
+                <div class="course-image">
+                    <img src="images/produtividade.jpg" alt="Produtividade">
+                    <span class="course-level">Todos os níveis</span>
+                </div>
+                <div class="course-info">
+                    <h3>Produtividade Extrema</h3>
+                    <p class="course-instructor">Dr. Rafael Santos</p>
+                    <p class="course-desc">Técnicas para aumentar sua produtividade.</p>
+                    <div class="course-meta">
+                        <span><i class="fa-solid fa-clock"></i> 28h</span>
+                        <span><i class="fa-solid fa-star"></i> 4.9</span>
+                    </div>
+                    <div class="course-card-actions" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:15px;">
+                        <button class="btn-enroll" onclick="showCourseDetail(this.closest('.course-card'))">Ver Detalhes</button>
+                        <button class="btn-secondary" onclick="addToFavorites('course', 7, 'Produtividade Extrema')" style="flex:1; min-width:120px;">Favoritar</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- === NEGÓCIOS === -->
+            <div class="course-card" data-id="8" data-category="negocios" data-title="Empreendedorismo Digital">
+                <div class="course-image">
+                    <img src="images/empreend.jpg" alt="Empreender">
+                    <span class="course-level">Avançado</span>
+                </div>
+                <div class="course-info">
+                    <h3>Empreendedorismo Digital</h3>
+                    <p class="course-instructor">Prof. Marcos Silva</p>
+                    <p class="course-desc">Como criar e escalar negócios na internet.</p>
+                    <div class="course-meta">
+                        <span><i class="fa-solid fa-clock"></i> 40h</span>
+                        <span><i class="fa-solid fa-star"></i> 4.7</span>
+                    </div>
+                    <div class="course-card-actions" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:15px;">
+                        <button class="btn-enroll" onclick="showCourseDetail(this.closest('.course-card'))">Ver Detalhes</button>
+                        <button class="btn-secondary" onclick="addToFavorites('course', 8, 'Empreendedorismo Digital')" style="flex:1; min-width:120px;">Favoritar</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- Tela de Configurações -->
+<section id="settings-screen" class="screen settings-screen">
+    <header>
+        <button class="menu-toggle" onclick="toggleSidebar()">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+        <h1 class="brand-name" style="margin-top: 10px;">Ajustes</h1>
+    </header>
+
+    <div class="settings-content">
+
+        <div class="settings-bar">
+            <div class="settings-bar-top">
+                <div>
+                    <span>Progresso do perfil</span>
+                    <p class="settings-subtitle">Use a barra abaixo para acessar rapidamente cada seção.</p>
+                </div>
+                <strong id="profile-completion-label">0%</strong>
+            </div>
+            <div class="progress-track">
+                <div class="progress-fill" id="profile-progress-fill"></div>
+            </div>
+            <div class="settings-action-bar">
+                <button type="button" class="action-pill" onclick="showScreen('profile-screen')">
+                    <i class="fa-solid fa-user"></i>
+                    Perfil
+                </button>
+                <button type="button" class="action-pill" onclick="showScreen('favorites-screen')">
+                    <i class="fa-solid fa-heart"></i>
+                    Favoritos
+                </button>
+                <button type="button" class="action-pill" onclick="showScreen('applications-screen')">
+                    <i class="fa-solid fa-file-alt"></i>
+                    Candidaturas
+                </button>
+            </div>
+        </div>
+
+        <div class="profile-tasks">
+            <div class="task-header">
+                <span>Tarefas pendentes do perfil</span>
+                <strong id="pending-tasks-count">0</strong>
+            </div>
+            <div class="task-list" id="pending-tasks-list">
+                <div class="task-item empty">Nenhuma tarefa pendente. Seu perfil está completo!</div>
+            </div>
+        </div>
+
+        <hr class="divider">
+
+        <div class="settings-option" onclick="showScreen('profile-screen')">
+            <i class="fa-solid fa-user-circle"></i>
+            <span>Perfil Completo</span>
+        </div>
+
+        <div class="settings-option" onclick="showScreen('favorites-screen')">
+            <i class="fa-solid fa-heart"></i>
+            <span>Favoritos</span>
+        </div>
+
+        <div class="settings-option" onclick="showScreen('applications-screen')">
+            <i class="fa-solid fa-file-alt"></i>
+            <span>Histórico de Candidaturas</span>
+        </div>
+
+        <hr class="divider">
+
+        <div class="settings-option" onclick="showScreen('login-screen')">
+            <i class="fa-solid fa-right-from-bracket" style="color: #e74c3c;"></i>
+            <span style="color: #e74c3c; font-weight: 600;">Sair da Conta</span>
+        </div>
+        <div class="settings-option" onclick="clearAppData()" style="margin-top:12px;">
+            <i class="fa-solid fa-trash" style="color: #e74c3c;"></i>
+            <span style="color: #e74c3c; font-weight: 600;">Limpar dados do app</span>
+        </div>
+    </div>
+</section>
+
+<!-- ====================== TELA DE PERFIL COMPLETO ====================== -->
+<section id="profile-screen" class="screen">
+    <header>
+        <button class="menu-toggle" onclick="showScreen('settings-screen')">
+            <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        <h1 class="brand-name" style="margin-top: 10px;">Meu Perfil</h1>
+    </header>
+
+    <div class="profile-screen-content">
+        <div class="profile-avatar-card">
+            <img id="profile-avatar" src="images/user_profile.png" alt="Foto" class="profile-avatar" onclick="document.getElementById('avatar-upload').click()">
+            <input type="file" id="avatar-upload" accept="image/*" style="display:none;" onchange="changeProfilePhoto(event)">
+            <div class="profile-avatar-info">
+                <h2 id="profile-fullname">Usuário</h2>
+                <p id="profile-email-display">email@example.com</p>
+            </div>
+        </div>
+
+        <div class="profile-form-grid">
+            <div class="input-field">
+                <div class="input-label">Nome completo</div>
+                <input type="text" id="profile-name-input" placeholder="Seu nome">
+            </div>
+
+            <div class="input-field">
+                <div class="input-label">E-mail</div>
+                <input type="email" id="profile-email-input" placeholder="seu@email.com">
+            </div>
+
+            <div class="input-field">
+                <div class="input-label">Profissão</div>
+                <input type="text" id="profile-profession" placeholder="Ex: Desenvolvedor Full Stack">
+            </div>
+
+            <div class="input-field">
+                <div class="input-label">Experiência (anos)</div>
+                <input type="number" id="profile-experience" placeholder="Ex: 3" min="0">
+            </div>
+
+            <div class="input-field">
+                <div class="input-label">Cidade</div>
+                <input type="text" id="profile-city" placeholder="Ex: Curitiba, PR">
+            </div>
+
+            <div class="input-field full-width">
+                <div class="input-label">Bio</div>
+                <textarea id="profile-bio" placeholder="Conte um pouco sobre você..." rows="4"></textarea>
+            </div>
+
+            <div class="input-field full-width">
+                <div class="input-label">Habilidades (separadas por vírgula)</div>
+                <input type="text" id="profile-skills" placeholder="Ex: JavaScript, React, Node.js">
+            </div>
+        </div>
+
+        <button class="btn-primary profile-save-btn" onclick="saveProfileData()">
+            <i class="fa-solid fa-save"></i> Salvar Perfil
+        </button>
+    </div>
+</section>
+
+<!-- ====================== TELA DE FAVORITOS ====================== -->
+<section id="favorites-screen" class="screen">
+    <header>
+        <button class="menu-toggle" onclick="showScreen('settings-screen')">
+            <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        <h1 class="brand-name" style="margin-top: 10px;">Favoritos</h1>
+    </header>
+
+    <div style="padding: 15px; flex: 1; overflow-y: auto;">
+        <div style="margin-bottom: 20px;">
+            <h3 style="color: var(--text-main); margin-bottom: 12px;">Vagas Salvas</h3>
+            <div id="favorites-jobs" style="display: flex; flex-direction: column; gap: 12px;"></div>
+        </div>
+
+        <div style="border-top: 1px solid #eee; padding-top: 20px; margin-top: 20px;">
+            <h3 style="color: var(--text-main); margin-bottom: 12px;">Cursos Salvos</h3>
+            <div id="favorites-courses" style="display: flex; flex-direction: column; gap: 12px;"></div>
+        </div>
+    </div>
+</section>
+
+<!-- ====================== TELA DE HISTÓRICO DE CANDIDATURAS ====================== -->
+<section id="applications-screen" class="screen">
+    <header>
+        <button class="menu-toggle" onclick="showScreen('settings-screen')">
+            <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        <h1 class="brand-name" style="margin-top: 10px;">Minha Candidaturas</h1>
+    </header>
+
+    <div style="padding: 15px; flex: 1; overflow-y: auto;">
+        <div id="applications-list" style="display: flex; flex-direction: column; gap: 12px;">
+            <!-- Candidaturas serão adicionadas aqui -->
+        </div>
+        <p id="no-applications" style="text-align: center; color: var(--text-muted); margin-top: 40px;">
+            <i class="fa-solid fa-inbox" style="font-size: 2.5rem; margin-bottom: 15px; display: block; opacity: 0.3;"></i>
+            Você ainda não se candidatou a nenhuma vaga.
+        </p>
+    </div>
+</section>
+
+<!-- Tela de Vagas -->
+<section id="jobs-screen" class="screen">
+    <header>
+        <button class="menu-toggle" onclick="showScreen('home-screen')">
+            <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        <h1 class="brand-name" style="margin-top: 10px;">Vagas Disponíveis</h1>
+    </header>
+    
+    <div class="jobs-container">
+
+        <!-- Vaga 1 -->
+        <div class="featured-card" style="margin-bottom: 15px; border-left-color: #0071e3;">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
+                <img src="images/Bosch-Logo-2002-2018.png" alt="Bosch" style="height: 32px; border-radius: 6px;">
+                <div>
+                    <h3 style="margin: 0;">Desenvolvedor Full Stack</h3>
+                    <p style="margin: 0; color: var(--text-muted); font-size: 14px;">Bosch • Araucária, PR</p>
+                </div>
+            </div>
+            <p><strong>Programador(a) Pleno</strong></p>
+            <span style="font-size: 13px; color: var(--text-muted); line-height: 1.5;">
+                • Salário: R$ 5.800 - R$ 8.200<br>
+                • Contrato: CLT
+            </span>
+            <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:15px;">
+                <button class="btn-primary" style="flex:1; min-width:120px;" onclick="showJobDetail(1)">
+                    Ver Detalhes
+                </button>
+                <button class="btn-secondary" style="flex:1; min-width:120px;" onclick="addToFavorites('job', 1, 'Desenvolvedor Full Stack')">
+                    Favoritar
+                </button>
+            </div>
+        </div>
+
+        <!-- Vaga 2 -->
+        <div class="featured-card" style="margin-bottom: 15px; border-left-color: #0071e3;">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
+                <img src="images/Bosch-Logo-2002-2018.png" alt="Bosch" style="height: 32px; border-radius: 6px;">
+                <div>
+                    <h3 style="margin: 0;">Designer de UI/UX</h3>
+                    <p style="margin: 0; color: var(--text-muted); font-size: 14px;">Bosch • Araucária, PR</p>
+                </div>
+            </div>
+            <p><strong>Designer de Interfaces</strong></p>
+            <span style="font-size: 13px; color: var(--text-muted); line-height: 1.5;">
+                • Salário: R$ 4.900 - R$ 7.000<br>
+                • Contrato: CLT
+            </span>
+            <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:15px;">
+                <button class="btn-primary" style="flex:1; min-width:120px;" onclick="showJobDetail(2)">
+                    Ver Detalhes
+                </button>
+                <button class="btn-secondary" style="flex:1; min-width:120px;" onclick="addToFavorites('job', 2, 'Designer de UI/UX')">
+                    Favoritar
+                </button>
+            </div>
+        </div>
+
+        <!-- Vaga 3 -->
+        <div class="featured-card" style="margin-bottom: 20px; border-left-color: #e30613;">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
+                <img src="images/r.jpg" alt="Mondelez" style="height: 32px; border-radius: 6px;">
+                <div>
+                    <h3 style="margin: 0;">Analista de Dados Júnior</h3>
+                    <p style="margin: 0; color: var(--text-muted); font-size: 14px;">Mondelez • Curitiba, PR</p>
+                </div>
+            </div>
+            <p><strong>Analista de Dados</strong></p>
+            <span style="font-size: 13px; color: var(--text-muted); line-height: 1.5;">
+                • Salário: R$ 3.800 - R$ 5.200<br>
+                • Contrato: CLT
+            </span>
+            <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:15px;">
+                <button class="btn-primary" style="flex:1; min-width:120px;" onclick="showJobDetail(3)">
+                    Ver Detalhes
+                </button>
+                <button class="btn-secondary" style="flex:1; min-width:120px;" onclick="addToFavorites('job', 3, 'Analista de Dados Júnior')">
+                    Favoritar
+                </button>
+            </div>
+        </div>
+
+        <!-- Vaga 4 -->
+        <div class="featured-card" style="margin-bottom: 20px; border-left-color: #4285F4;">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" style="height: 28px; border-radius: 6px;">
+                <div>
+                    <h3 style="margin: 0;">Engenheiro de Dados Sênior</h3>
+                    <p style="margin: 0; color: var(--text-muted); font-size: 14px;">Google • São Paulo, SP</p>
+                </div>
+            </div>
+            <p><strong>Dados e Analytics</strong></p>
+            <span style="font-size: 13px; color: var(--text-muted); line-height: 1.5;">
+                • Salário: R$ 12.500 - R$ 17.000<br>
+                • Contrato: CLT
+            </span>
+            <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:15px;">
+                <button class="btn-primary" style="flex:1; min-width:120px;" onclick="showJobDetail(4)">
+                    Ver Detalhes
+                </button>
+                <button class="btn-secondary" style="flex:1; min-width:120px;" onclick="addToFavorites('job', 4, 'Engenheiro de Dados Sênior')">
+                    Favoritar
+                </button>
+            </div>
+        </div>
+
+        <!-- Vaga 5 -->
+        <div class="featured-card" style="margin-bottom: 20px; border-left-color: #FF9900;">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon" style="height: 32px; border-radius: 6px;">
+                <div>
+                    <h3 style="margin: 0;">Analista de Logística</h3>
+                    <p style="margin: 0; color: var(--text-muted); font-size: 14px;">Amazon • Barueri, SP</p>
+                </div>
+            </div>
+            <p><strong>Operações e Supply Chain</strong></p>
+            <span style="font-size: 13px; color: var(--text-muted); line-height: 1.5;">
+                • Salário: R$ 6.500 - R$ 9.000<br>
+                • Contrato: CLT
+            </span>
+            <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:15px;">
+                <button class="btn-primary" style="flex:1; min-width:120px;" onclick="showJobDetail(5)">
+                    Ver Detalhes
+                </button>
+                <button class="btn-secondary" style="flex:1; min-width:120px;" onclick="addToFavorites('job', 5, 'Analista de Logística')">
+                    Favoritar
+                </button>
+            </div>
+        </div>
+
+        <!-- Vaga 6 -->
+        <div class="featured-card" style="margin-bottom: 20px; border-left-color: #F25022;">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft" style="height: 32px; border-radius: 6px;">
+                <div>
+                    <h3 style="margin: 0;">Product Manager</h3>
+                    <p style="margin: 0; color: var(--text-muted); font-size: 14px;">Microsoft • Campinas, SP</p>
+                </div>
+            </div>
+            <p><strong>Gestão de Produtos</strong></p>
+            <span style="font-size: 13px; color: var(--text-muted); line-height: 1.5;">
+                • Salário: R$ 13.000 - R$ 18.500<br>
+                • Contrato: CLT
+            </span>
+            <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:15px;">
+                <button class="btn-primary" style="flex:1; min-width:120px;" onclick="showJobDetail(6)">
+                    Ver Detalhes
+                </button>
+                <button class="btn-secondary" style="flex:1; min-width:120px;" onclick="addToFavorites('job', 6, 'Product Manager')">
+                    Favoritar
+                </button>
+            </div>
+        </div>
+
+        <!-- Vaga 7 -->
+        <div class="featured-card" style="margin-bottom: 20px; border-left-color: #000000;">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple" style="height: 32px; border-radius: 6px;">
+                <div>
+                    <h3 style="margin: 0;">Especialista em Suporte Técnico</h3>
+                    <p style="margin: 0; color: var(--text-muted); font-size: 14px;">Apple • São Paulo, SP</p>
+                </div>
+            </div>
+            <p><strong>Suporte e Atendimento</strong></p>
+            <span style="font-size: 13px; color: var(--text-muted); line-height: 1.5;">
+                • Salário: R$ 8.200 - R$ 10.500<br>
+                • Contrato: CLT
+            </span>
+            <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:15px;">
+                <button class="btn-primary" style="flex:1; min-width:120px;" onclick="showJobDetail(7)">
+                    Ver Detalhes
+                </button>
+                <button class="btn-secondary" style="flex:1; min-width:120px;" onclick="addToFavorites('job', 7, 'Especialista em Suporte Técnico')">
+                    Favoritar
+                </button>
+            </div>
+        </div>
+
+        <!-- Vaga 8 -->
+        <div class="featured-card" style="margin-bottom: 20px; border-left-color: #E50914;">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix" style="height: 28px; border-radius: 6px;">
+                <div>
+                    <h3 style="margin: 0;">Especialista em Marketing Digital</h3>
+                    <p style="margin: 0; color: var(--text-muted); font-size: 14px;">Netflix • Rio de Janeiro, RJ</p>
+                </div>
+            </div>
+            <p><strong>Marketing e Mídias</strong></p>
+            <span style="font-size: 13px; color: var(--text-muted); line-height: 1.5;">
+                • Salário: R$ 9.000 - R$ 12.500<br>
+                • Contrato: CLT
+            </span>
+            <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:15px;">
+                <button class="btn-primary" style="flex:1; min-width:120px;" onclick="showJobDetail(8)">
+                    Ver Detalhes
+                </button>
+                <button class="btn-secondary" style="flex:1; min-width:120px;" onclick="addToFavorites('job', 8, 'Especialista em Marketing Digital')">
+                    Favoritar
+                </button>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ====================== TELA DE DETALHES DA VAGA ====================== -->
+<section id="job-detail-screen" class="screen">
+    <header>
+        <button class="menu-toggle" onclick="backFromDetail()">
+            <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        <h1 class="brand-name" style="margin-top: 10px;">Detalhes da Vaga</h1>
+    </header>
+
+    <div class="job-detail-content" style="padding: 15px; flex: 1; overflow-y: auto;">
+        <div id="job-detail-card" class="featured-card"></div>
+
+        <div style="margin: 25px 5px;">
+            <button class="btn-primary" style="width: 100%; padding: 16px; font-size: 17px;" onclick="startApplication()">
+                <i class="fa-solid fa-paper-plane"></i> Candidatar-se Agora
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- ====================== TELA DE DETALHES DO CURSO ====================== -->
+<section id="course-detail-screen" class="screen">
+    <header>
+        <button class="menu-toggle" onclick="backFromDetail()">
+            <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        <h1 class="brand-name" style="margin-top: 10px;">Detalhes do Curso</h1>
+    </header>
+
+    <div class="job-detail-content" style="padding: 15px; flex: 1; overflow-y: auto;">
+        <div id="course-detail-card" class="featured-card"></div>
+
+        <div style="margin: 25px 5px;">
+            <button class="btn-primary" style="width: 100%; padding: 16px; font-size: 17px;" onclick="enrollInCourseFromDetail()">
+                <i class="fa-solid fa-graduation-cap"></i> Inscrever-se no Curso
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- ====================== TELA DE CANDIDATURA ====================== -->
+<section id="application-screen" class="screen">
+    <header>
+        <button class="menu-toggle" onclick="showScreen('job-detail-screen')">
+            <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        <h1 class="brand-name" style="margin-top: 10px;">Enviar Candidatura</h1>
+    </header>
+
+    <div class="application-content" style="padding: 20px;">
+        <div id="application-job-info" class="featured-card" style="margin-bottom: 25px;"></div>
+
+        <h3 style="margin-bottom: 15px;">Por que você quer esta vaga?</h3>
+        <textarea id="motivation-text" rows="6" placeholder="Escreva uma breve mensagem (opcional)..." 
+                  style="width: 100%; border-radius: 12px; padding: 12px; border: 1px solid #ddd; resize: vertical;"></textarea>        
+        <div style="margin: 25px 0;">
+            <label style="font-weight: 600;">Currículo (PDF ou imagem)</label><br>
+            <input type="file" accept=".pdf,.doc,.docx,image/*" style="margin-top: 8px;">
+        </div>
+
+        <button onclick="submitApplication()" class="btn-primary" style="width: 100%; padding: 16px; font-size: 17px;">
+            <i class="fa-solid fa-paper-plane"></i> Enviar Candidatura
+        </button>
+
+        <p style="text-align: center; margin-top: 20px; color: var(--text-muted); font-size: 13px;">
+            Sua candidatura será analisada em até 5 dias úteis.
+        </p>
+    </div>
+</section>
+
+
+<!-- Tela de Mapa Interativo -->
+<section id="map-screen" class="screen">
+    <header>
+        <button class="menu-toggle" onclick="showScreen('home-screen')">
+            <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        <h1 class="brand-name" style="margin-top: 10px;">Oportunidades Próximas</h1>
+    </header>
+    
+    <div class="map-container" style="flex: 1; position: relative; border-radius: 20px; overflow: hidden; margin-top: 10px;">
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d57613.62624383461!2d-49.42152865!3d-25.5931885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dcf0f23058204d%3A0x6331a44c97941093!2sArauc%C3%A1ria%2C%20PR!5e0!3m2!1spt-BR!2sbr!4v1715000000000" 
+            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+        </iframe>
+
+       <div class="map-pin" onclick="toggleVacancyCard()" style="position: absolute; top: 50%; left: 50%; cursor: pointer; color: #e74c3c; font-size: 30px;">
+            <i class="fa-solid fa-location-dot"></i>
+        </div>
+    </div>
+    <div id="vacancy-card" class="vacancy-info-card">
+    <div class="card-handle"></div>
+    <div class="card-header">
+        <img src="CIEE.png" alt="Logo Empresa" class="company-logo-small">
+        <div>
+            <h3>Jovem Aprendiz</h3>
+            <p>Indústria de Alimentos</p>
+        </div>
+    </div>
+    <div class="card-body">
+        <p><i class="fa-solid fa-location-dot"></i> Centro, Araucária - PR</p>
+        <p><i class="fa-solid fa-money-bill-wave"></i> R$ 800,00 - R$ 1.200,00</p>
+        <button class="btn-primary" style="width: 100%; margin-top: 15px;" onclick="applyMapVacancy()">Candidatar-se</button>
+    </div>
+</div>
+</section>
+
+        <!-- Tela de Mensagens -->
+        <section id="messages-screen" class="screen">
+            <header>
+                <button class="menu-toggle" onclick="showScreen('home-screen')">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </button>
+                <h1 class="brand-name" style="margin-top: 10px;">Mensagens</h1>
+            </header>
+
+            <div class="messages-tabs">
+                <button class="msg-tab active" id="tab-general" onclick="switchMessageContext('general')">Geral</button>
+                <button class="msg-tab" id="tab-vagas" onclick="switchMessageContext('jobs')">Vagas</button>
+                <button class="msg-tab" id="tab-cursos" onclick="switchMessageContext('courses')">Cursos</button>
+            </div>
+
+            <div class="messages-container" id="messages-list" style="padding: 12px; overflow-y: auto;">
+                <!-- Mensagens serão renderizadas aqui -->
+            </div>
+
+            <div class="message-input-bar">
+                <input type="text" id="message-input" placeholder="Escreva uma mensagem..." onkeydown="if(event.key==='Enter'){ sendMessage(); }">
+                <button class="btn-primary" onclick="sendMessage()">Enviar</button>
+            </div>
+        </section>
+
+        <section id="login-screen" class="screen">
+            <header>
+                <img src="images/logo.png" alt="Logo" class="app-logo">
+                <h1 class="brand-name">Entrar</h1>
+            </header>
+
+            <div class="form-group">
+                <div class="input-field">
+                    <i class="fa-regular fa-envelope"></i>
+                    <input type="email" id="login-email" placeholder="E-mail">
+                </div>
+                <div class="input-field">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" id="login-password" placeholder="Senha">
+                </div>
+                <button class="forgot-link" onclick="showScreen('recover-screen')">Esqueceu a senha?</button>
+            </div>
+
+            <button type="button" class="btn-primary" onclick="handleLogin()">Logar</button>
+            
+            <div class="footer">
+                <button type="button" class="signup-link" onclick="showScreen('register-screen')">Cadastrar-se</button>
+            </div>
+        </section>
+
+        <section id="register-screen" class="screen">
+            <header>
+                <h1 class="brand-name">Criar Conta</h1>
+                <p class="tagline">Junte-se ao Oportuniza</p>
+            </header>
+
+            <div class="form-group">
+                <div class="input-field">
+                    <i class="fa-regular fa-user"></i>
+                    <input type="text" id="reg-name" placeholder="Nome Completo">
+                </div>
+                <div class="input-field">
+                    <i class="fa-regular fa-envelope"></i>
+                    <input type="email" id="reg-email" placeholder="E-mail">
+                </div>
+                <div class="input-field">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" id="reg-password" placeholder="Crie uma Senha">
+                </div>
+            </div>
+
+            <button type="button" id="register-submit" class="btn-primary" onclick="handleRegister()">Registrar</button>
+            
+            <div class="footer">
+                <button type="button" class="signup-link" onclick="showScreen('login-screen')">Voltar para o Login</button>
+            </div>
+        </section>
+
+        <section id="recover-screen" class="screen">
+            <header>
+                <h1 class="brand-name">Recuperar</h1>
+                <p class="tagline">Digite seu e-mail cadastrado</p>
+            </header>
+
+            <div class="form-group">
+                <div class="input-field">
+                    <i class="fa-regular fa-envelope"></i>
+                    <input type="email" id="recover-email" placeholder="E-mail">
+                </div>
+            </div>
+
+            <button class="btn-primary" onclick="handleRecover()">Enviar Instruções</button>
+            
+            <div class="footer">
+                <button class="signup-link" onclick="showScreen('login-screen')">Cancelar</button>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- ===================== MODAL EDITAR NOME ===================== -->
+    <div id="edit-name-modal" class="modal">
+        <div class="modal-content">
+            <h3>Editar Nome</h3>
+            <input type="text" id="new-name-input" placeholder="Digite seu novo nome" maxlength="50">
+            
+            <div class="modal-buttons">
+                <button class="btn-cancel" onclick="closeEditNameModal()">Cancelar</button>
+                <button class="btn-save" onclick="saveNewName()">Salvar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================== MODAL DETALHES DO CURSO ===================== -->
+    <div id="course-modal" class="modal">
+        <div class="modal-content course-modal-content">
+            <button class="close-modal" onclick="closeCourseModal()">×</button>
+            
+            <div id="modal-course-image" class="course-modal-image"></div>
+
+            <div class="modal-body">
+                <span id="modal-course-level" class="course-level"></span>
+                <h2 id="modal-course-title"></h2>
+                <p id="modal-course-instructor" class="course-instructor"></p>
+                
+                <div class="course-meta" style="margin: 15px 0;">
+                    <span><i class="fa-solid fa-clock"></i> <span id="modal-duration"></span></span>
+                    <span><i class="fa-solid fa-star"></i> <span id="modal-rating"></span></span>
+                </div>
+
+                <h3>Sobre o curso</h3>
+                <p id="modal-course-desc" class="course-desc"></p>
+
+                <h3>O que você vai aprender</h3>
+                <ul id="modal-learning-points" class="learning-points"></ul>
+
+                <div class="modal-price">
+                    <span>Investimento</span>
+                    <strong id="modal-price">R$ 89,90</strong>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button onclick="closeCourseModal()" class="btn-cancel">Fechar</button>
+                <button onclick="enrollInCourse()" class="btn-primary">
+                    <i class="fa-solid fa-graduation-cap"></i> Inscrever-se
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================== TELA DE SUCESSO ===================== -->
+    <div id="success-screen" class="success-overlay hidden">
+        <div class="success-card">
+            <i class="fa-solid fa-check-circle success-icon"></i>
+            <h2>Sucesso!</h2>
+            <p id="success-message">Alterações salvas com sucesso.</p>
+            <button class="btn-ok" onclick="closeSuccessScreen()">OK</button>
+        </div>
+    </div>
+
+    <!-- ===================== TELA DE ERRO ===================== -->
+    <div id="error-screen" class="error-overlay hidden">
+        <div class="success-card">
+            <i class="fa-solid fa-times-circle error-icon"></i>
+            <h2>Erro</h2>
+            <p id="error-message">Algo deu errado.</p>
+            <button class="btn-ok" onclick="closeErrorScreen()">OK</button>
+        </div>
+    </div>
+
+    <!-- ===================== TELA DE CONFIRMAÇÃO ===================== -->
+    <div id="confirm-screen" class="confirm-overlay hidden">
+        <div class="success-card">
+            <i class="fa-solid fa-question-circle confirm-icon"></i>
+            <h2>Confirmação</h2>
+            <p id="confirm-message">Tem certeza?</p>
+            <div class="modal-buttons" style="margin-top: 20px; gap: 12px;">
+                <button class="btn-cancel" onclick="closeConfirmModal()">Cancelar</button>
+                <button class="btn-primary" onclick="confirmModalYes()">Confirmar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
